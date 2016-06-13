@@ -155,7 +155,6 @@
 
 > public boolean register(User user) throws AppException {
 >       boolean flag = false;
->
 >       try {
 >           if (!userdao.isExist(user.getName())) {
 >               flag = userdao.add(user);
@@ -172,11 +171,10 @@
 - dao包中与之相关的是接口[UserDao.java](https://github.com/BIOTONIC/Contract/blob/master/src/com/lovejoy/dao/UserDao.java)和具体实现文件[UserDaoImpl.java](https://github.com/BIOTONIC/Contract/blob/master/src/com/lovejoy/dao/impl/UserDaoImpl.java)
 - UserDaoImpl.java中的add()方法与注册相关，代码如下：
 
-    public boolean add(User user) throws AppException {
-        boolean flag = false;
-        Connection conn = null;
-        PreparedStatement psmt = null;
-
+>   public boolean add(User user) throws AppException {
+>       boolean flag = false;
+>       Connection conn = null;
+>       PreparedStatement psmt = null;
 >       try {
 >           conn = DBUtil.getConnection();
 >           String sql = "insert into t_user(name,password)" + "values(?,?)";
