@@ -127,6 +127,7 @@
 ## 重点细节(Detail)
 以下部分会选取整个开发中较为重点的部分进行详细分析
 ### 注册环节(Register)
+- 在[web.xml](https://github.com/BIOTONIC/Contract/blob/master/web/WEB-INF/web.xml)中添加ToRegister和Register两个配置
 - [ToRegister.java](https://github.com/BIOTONIC/Contract/blob/master/src/com/lovejoy/web/ToRegisterServlet.java)重写了HttpServlet的doPost()和doGet()方法
    通过  
 
@@ -141,4 +142,79 @@
 > String password2 = request.getParameter("password2");  
 
    获取注册信息
-- 在[web.xml](https://github.com/BIOTONIC/Contract/blob/master/web/WEB-INF/web.xml)中添加ToRegister和Register两个配置
+   之后验证用户名密码不为空且两次密码一致，再封装成User类，交给UserService类来处理
+   如果注册失败，跳转到自定义异常的界面，否则带回成功的消息返回到ToRegister界面  
+- service包中的[UserService.java](https://github.com/BIOTONIC/Contract/blob/master/src/com/lovejoy/service/UserService.java)用于处理用户的各种业务逻辑，其中有关注册部分的代码如下：
+
+> public boolean register(User user) throws AppException {
+>       boolean flag = false;
+>
+>       try {
+>           if (!userdao.isExist(user.getName())) {
+>               flag = userdao.add(user);
+>               System.out.println("register success");
+>           }
+>       } catch (AppException e) {
+>           e.printStackTrace();
+>           throw new AppException("com.lovejoy.dao.service.UserService.register");
+>       }
+>       return flag;
+>   }
+
+   简单来说，就是访问数据访问层来获得返回值，如果新用户名尚不存在，那么添加一条
+- dao包中与之相关的是接口[UserDao.java](https://github.com/BIOTONIC/Contract/blob/master/src/com/lovejoy/dao/UserDao.java)和具体实现文件[UserDaoImpl.java](https://github.com/BIOTONIC/Contract/blob/master/src/com/lovejoy/dao/impl/UserDaoImpl.java)
+- UserDaoImpl.java中的add()方法与注册相关，代码如下：
+
+    public boolean add(User user) throws AppException {
+        boolean flag = false;
+        Connection conn = null;
+        PreparedStatement psmt = null;
+
+>       try {
+>           conn = DBUtil.getConnection();
+>           String sql = "insert into t_user(name,password)" + "values(?,?)";
+>           psmt = conn.prepareStatement(sql);
+>           psmt.setString(1, user.getName());
+>           psmt.setString(2, user.getPassword());
+>           int result = -1;
+>           result = psmt.executeUpdate();
+>           if (result > 0) {
+>               flag = true;
+>           }
+>       } catch (SQLException e) {
+>           e.printStackTrace();
+>           throw new AppException("com.lovejoy.dao.impl.UserDaoImpl.add");
+>       } finally {
+>           DBUtil.closeStatement(psmt);
+>           DBUtil.closeConnection(conn);
+>       }
+>       return flag;
+>   }
+
+   连接数据库后，向t_user表添加新的用户记录，并返回成功与否信息
+   另一个相关的方法是isExists()，检查数据库中是否已经存在当前的用户名
+- 连接数据库的方法在Utils包的[DBUtil.java](https://github.com/BIOTONIC/Contract/blob/master/src/com/lovejoy/utils/DBUtil.java)文件中，通过使用[驱动](https://github.com/BIOTONIC/Contract/blob/master/web/WEB-INF/lib/mysql-connector-java-5.1.39-bin.jar)连接MySQL中的数据库，核心代码如下：
+
+> private static String URL = "jdbc:mysql://127.0.0.1:3306/db_contract?useUnicode=true&amp;"
+>           + "characterEncoding=utf8";
+>   private static String user = "root";
+>   private static String password = "";
+>
+>   static {
+>       try {
+>           Class.forName("com.mysql.jdbc.Driver");
+>       } catch (ClassNotFoundException e) {
+>           e.printStackTrace();
+>       }
+>   }
+>
+>   public static Connection getConnection() {
+>       Connection conn = null;
+>       try {
+>           conn = DriverManager.getConnection(URL, user, password);
+>       } catch (SQLException e) {
+>           e.printStackTrace();
+>       }
+>       return conn;
+>   }
+
