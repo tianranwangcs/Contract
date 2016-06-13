@@ -2,14 +2,14 @@
 
 ## 项目概述(Introduction)
 本项目通过Java EE、Tomcat和MySQL等工具，创建一个基于B/S架构的联系人管理系统。
-这里插入bsjg
+![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/bsjg.PNG)
 
 ## 需求分析(Requirement Analysis)
-- 系统架构如下：
+- 功能模块如下：
 ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/rjjg.PNG)
 
 - 业务流程如下：
-这里插入ywlc
+![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/ywlc.PNG)
 
 - 系统拥有三种用户：
  1. 管理者 管理整个系统，拥有最高权限
@@ -36,7 +36,7 @@
 
 ### 合同管理(Contract Management)
 - 一个操作者在登录后，可以进行下列合同管理功能：  
-这里插入htgl
+![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/htgl.PNG)
 
 ### 起草合同(Draft Contract)
 - 操作员在登录后有起草合同的权限  
@@ -68,11 +68,20 @@
 
 ## 具体实现(Implementation)
 ### 结构设计(Structure Design)
+- 本系统本来采用JSP+Tomcat+MySQL的模型
+  JSP同时负责界面和逻辑处理，但这样JSP部分过于臃肿
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/xtjg1.PNG)
+- 于是采用JSP+Servlet+Tomcat+MySQL的模型
+  JSP只负责界面，逻辑处理交给Servlet
+  这也更加符合MVC模型
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/xtjg2.PNG)
 - 本系统遵从三层架构设计模式，系统可以被分成用户界面层(User Interface Layer)、业务逻辑层(Business Logic Layer)和数据访问层(Data Access Layer) 
-*三层架构与MVC不是同一个概念，MVC指模型层(Model Layer)、视图层(View Layer)和控制层(Controll Layer)*
+  *三层架构与MVC不是同一个概念，MVC指模型层(Model Layer)、视图层(View Layer)和控制层(Controll Layer)*
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/scjg.PNG)
 - source文件也就可以分成相应的三个包，com.lovejoy.web、com.lovejoy.service和com.lovejoy.dao
 - 用图表表示如下：
-
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/bjg.PNG)
+  
   |Project Structure      |Directory			            |
   |:---------------------:|:-----------------------------:|
   |User Interface Layer	|JSP files & com.lovejoy.web	|
@@ -92,14 +101,14 @@
 - 异常处理：
   为三层创建统一的自定义异常处理层————ApplicationException  
   遇到异常，从底层依次向上抛出，直至在用户界面层显示出来
-  此处插入yccl
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/yccl.PNG)
 
 ### 数据库设计(Database Design)
 采用PowerDesigner进行快捷的数据库设计
 - 概念数据模型如下：  
-此处插入gnmx
+![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/gnmx.PNG)
 - 物理模型如下：  
-此处插入wlmx
+![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/wlmx.PNG)
 - spl文件如下：  
   [自动生成的DDL.sql](https://github.com/BIOTONIC/Contract/blob/master/web/sql/DDL.sql)  
   [自己添加的DML.sql](https://github.com/BIOTONIC/Contract/blob/master/web/sql/DML.sql)
