@@ -6,10 +6,10 @@
 
 ## 需求分析(Requirement Analysis)
 - 功能模块如下：
-  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/rjjg.PNG)
+   ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/rjjg.PNG)
 
-- 业务流程如下：
-  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/ywlc.PNG)
+- 业务流程如下：  
+   ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/ywlc.PNG)
 
 - 系统拥有三种用户：
  1. 管理者 管理整个系统，拥有最高权限
@@ -79,8 +79,8 @@
   *三层架构与MVC不是同一个概念，MVC指模型层(Model Layer)、视图层(View Layer)和控制层(Controll Layer)*
   ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/scjg.PNG)
 - source文件也就可以分成相应的三个包，com.lovejoy.web、com.lovejoy.service和com.lovejoy.dao
-- 用图表表示如下：
-  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/bjg.PNG)
+- 用图表表示如下：  
+   ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/bjg.PNG)
   
   |Project Structure      |Directory			            |
   |:---------------------:|:-----------------------------:|
