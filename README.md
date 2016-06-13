@@ -1,5 +1,12 @@
 # Contract Management System (Java EE)
 
+## 目录(Content)
+- [项目概述(Introduction)](https://github.com/BIOTONIC/Contract/blob/master/README.md#项目概述introduction)
+- [需求分析(Requirement Analysis)](https://github.com/BIOTONIC/Contract/blob/master/README.md#需求分析requirement-analysis)
+- [功能概述(Function)](https://github.com/BIOTONIC/Contract/blob/master/README.md#功能概述function)
+- [设计实现(Implementation)](https://github.com/BIOTONIC/Contract/blob/master/README.md#设计实现implementation)
+- [重点细节(Detail)](https://github.com/BIOTONIC/Contract/blob/master/README.md#重点细节detail)
+
 ## 项目概述(Introduction)
 本项目通过Java EE、Tomcat和MySQL等工具，创建一个基于B/S架构的联系人管理系统。
   ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/bsjg.PNG)
