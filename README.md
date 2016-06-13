@@ -66,7 +66,7 @@
 - 填写的会签观点不能为空，否则错误提示
 这里插入qdht
 
-## 具体实现(Implementation)
+## 设计实现(Implementation)
 ### 结构设计(Structure Design)
 - 本系统本来采用JSP+Tomcat+MySQL的模型
   JSP同时负责界面和逻辑处理，但这样JSP部分过于臃肿
@@ -75,8 +75,8 @@
   JSP只负责界面，逻辑处理交给Servlet
   这也更加符合MVC模型
   ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/xtjg2.PNG)
-- 本系统遵从三层架构设计模式，系统可以被分成用户界面层(User Interface Layer)、业务逻辑层(Business Logic Layer)和数据访问层(Data Access Layer) 
-  *三层架构与MVC不是同一个概念，MVC指模型层(Model Layer)、视图层(View Layer)和控制层(Controll Layer)*
+- 本系统遵从三层架构设计模式，系统可以被分成用户界面层(User Interface Layer)、业务逻辑层(Business Logic Layer)和数据访问层(Data Access Layer)   
+- *三层架构与MVC不是同一个概念，MVC指模型层(Model Layer)、视图层(View Layer)和控制层(Controll Layer)*
   ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/scjg.PNG)
 - source文件也就可以分成相应的三个包，com.lovejoy.web、com.lovejoy.service和com.lovejoy.dao
 - 用图表表示如下：  
@@ -124,4 +124,4 @@
   7. [合同详情界面](https://github.com/BIOTONIC/Contract/blob/master/web/htm/contractDetail.htm)
   8. [待会签合同列表界面](https://github.com/BIOTONIC/Contract/blob/master/web/htm/dhqhtList.htm)
 
-## 到第8章了
+## 重点细节(Detail)
