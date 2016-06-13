@@ -2,14 +2,14 @@
 
 ## 项目概述(Introduction)
 本项目通过Java EE、Tomcat和MySQL等工具，创建一个基于B/S架构的联系人管理系统。
-![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/bsjg.PNG)
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/bsjg.PNG)
 
 ## 需求分析(Requirement Analysis)
 - 功能模块如下：
-![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/rjjg.PNG)
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/rjjg.PNG)
 
 - 业务流程如下：
-![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/ywlc.PNG)
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/ywlc.PNG)
 
 - 系统拥有三种用户：
  1. 管理者 管理整个系统，拥有最高权限
@@ -36,7 +36,7 @@
 
 ### 合同管理(Contract Management)
 - 一个操作者在登录后，可以进行下列合同管理功能：  
-![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/htgl.PNG)
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/htgl.PNG)
 
 ### 起草合同(Draft Contract)
 - 操作员在登录后有起草合同的权限  
@@ -106,9 +106,9 @@
 ### 数据库设计(Database Design)
 采用PowerDesigner进行快捷的数据库设计
 - 概念数据模型如下：  
-![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/gnmx.PNG)
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/gnmx.PNG)
 - 物理模型如下：  
-![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/wlmx.PNG)
+  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/wlmx.PNG)
 - spl文件如下：  
   [自动生成的DDL.sql](https://github.com/BIOTONIC/Contract/blob/master/web/sql/DDL.sql)  
   [自己添加的DML.sql](https://github.com/BIOTONIC/Contract/blob/master/web/sql/DML.sql)
