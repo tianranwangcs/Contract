@@ -129,12 +129,16 @@
 ### 注册环节(Register)
 - [ToRegister.java](https://github.com/BIOTONIC/Contract/blob/master/src/com/lovejoy/web/ToRegisterServlet.java)重写了HttpServlet的doPost()和doGet()方法
    通过  
+
 > request.getRequestDispatcher("/register.jsp").forward(request,response)
+
    将请求转发到register.jsp,完成加载注册界面的逻辑
 - [Register.java](https://github.com/BIOTONIC/Contract/blob/master/src/com/lovejoy/web/RegisterServlet.java)也是重写了HttpServelt的doPost()方法
-   用于接收从register.jsp提交的action，通过  
+   用于接收从register.jsp提交的action，通过 
+
 > String name = request.getParameter("name");  
 > String password = request.getParameter("password");  
-> String password2 = request.getParameter("password2");
+> String password2 = request.getParameter("password2");  
+
    获取注册信息
 - 在[web.xml](https://github.com/BIOTONIC/Contract/blob/master/web/WEB-INF/web.xml)中添加ToRegister和Register两个配置
