@@ -9,7 +9,6 @@
 
 ## 项目概述(Introduction)
 本项目通过Java EE、Tomcat和MySQL等工具，创建一个基于B/S架构的联系人管理系统。
-  ![](https://github.com/BIOTONIC/Contract/blob/master/web/screenshots/bsjg.PNG)
 
 ## 需求分析(Requirement Analysis)
 - 功能模块如下：
