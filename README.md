@@ -144,9 +144,9 @@
 - [Register.java](https://github.com/BIOTONIC/Contract/blob/master/src/com/lovejoy/web/RegisterServlet.java)也是重写了HttpServelt的doPost()方法
    用于接收从register.jsp提交的action，通过 
 
-``` String name = request.getParameter("name");  
- String password = request.getParameter("password");  
- String password2 = request.getParameter("password2");  ```
+> String name = request.getParameter("name");  
+> String password = request.getParameter("password");  
+> String password2 = request.getParameter("password2");
 
    获取注册信息
    之后验证用户名密码不为空且两次密码一致，再封装成User类，交给UserService类来处理
