@@ -220,3 +220,25 @@
 >       return conn;  
 >   }  
 
+### 不同权限(Different Authority)
+- 以管理员账户(例:admin 123456)登陆，将跳转到管理员的界面
+- 以操作员账户(例:jack 123456)登陆，将跳转到操作员的界面
+- 处理这一逻辑的是LoginServlet
+> int a = role.getId();  
+> session.setAttribute("roleId", a);  
+> if (a == 1) {  
+>     request.getRequestDispatcher("/frame1.jsp").forward(request, response);  
+>     } else if (a == 2) {  
+>     request.getRequestDispatcher("/frame2.jsp").forward(request, response);  
+>     } else {  
+>     response.sendRedirect("ToNewUser");
+>     }
+- 看代码也会发现也有一个ToNewUser，New User没有任何权限，虽然我没有做
+- frame1.jsp和fram2.jsp采用了frame的思路，差别在于左边使用的界面不一样，一个用left1.jsp，一个用left2.jsp
+
+### 动态界面(Dynamic Interface)
+- 在管理员的待分配合同列表中，dfphtList.jsp文件在html中增加java代码，从而动态地从数据库中获取符合条件的记录信息，显示出来
+- 查询记录总数，设定每页最多显示数据量，计算出总页数，记录当前页数，从而实现分页查看的功能
+- 目前实现了起草合同、增加客户的增的功能，以及管理员待分配合同列表、操作员待会签合同列表的查询功能
+
+
