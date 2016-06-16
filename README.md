@@ -224,6 +224,7 @@
 - 以管理员账户(例:admin 123456)登陆，将跳转到管理员的界面
 - 以操作员账户(例:jack 123456)登陆，将跳转到操作员的界面
 - 处理这一逻辑的是LoginServlet
+
 > int a = role.getId();  
 > session.setAttribute("roleId", a);  
 > if (a == 1) {  
@@ -233,6 +234,7 @@
 >     } else {  
 >     response.sendRedirect("ToNewUser");
 >     }
+
 - 看代码也会发现也有一个ToNewUser，New User没有任何权限，虽然我没有做
 - frame1.jsp和fram2.jsp采用了frame的思路，差别在于左边使用的界面不一样，一个用left1.jsp，一个用left2.jsp
 
